@@ -3,6 +3,8 @@ package com.telenordigital.abacourse.bowling;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+import com.google.common.collect.ImmutableList;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -22,7 +24,8 @@ public class BowlingScoreTest {
     public void testScore() {
         when(sensor.getPinsDown()).thenReturn(3, 3);
 
-        BowlingScore bowlingScore = new BowlingScore(sensor);
+        List<String> players = ImmutableList.of("Per", "Mia");
+        BowlingScore bowlingScore = new BowlingScore(sensor, players);
 
         bowlingScore.addPinsDownFromSensor();
         assertThat(bowlingScore.getScore()).isEqualTo(3);
