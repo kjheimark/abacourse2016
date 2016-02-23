@@ -28,10 +28,9 @@ public class BowlingScoreTest {
         BowlingScore bowlingScore = new BowlingScore(sensor, players);
 
         bowlingScore.addPinsDownFromSensor();
-        assertThat(bowlingScore.getScore()).isEqualTo(3);
+        assertThat(bowlingScore.getScore().get("Per")).isEqualTo(3);
 
         bowlingScore.addPinsDownFromSensor();
-        assertThat(bowlingScore.getScore()).isEqualTo(6);
+        assertThat(bowlingScore.getScore().get("Per")).isEqualTo(6);
     }
-
 }
